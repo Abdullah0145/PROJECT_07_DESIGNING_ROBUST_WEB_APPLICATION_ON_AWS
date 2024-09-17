@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designing Robust Web Application on AWS</title>
+</head>
+<body>
+    <h1>::Project_07_Designing Robust Web Application on AWS::</h1>
+    <h3>::Part 1::</h3>
+    <h2>::01. Create VPC::</h2>
+    <p>Step 1: first "login/sign" in with "Root User" on "AWS Management Console".</p>
+    <img src="./1. Create VPC/Screenshot(01).png" width="1000px" height="450px">
+    <p>Step 2: Give the "email adress" of the "Root User"(mdabdullahsheikh880@gmail.com)"</p>
+    <img src="./1. Create VPC/Screenshot(02).png" width="1000px" height="450px">
+    <p>Step 3: Give the Password of the "Root User"(Abdullah@-0***) </p>
+    <img src="./1. Create VPC/Screenshot(03).png" width="1000px" height="450px">
+    <p>Step 4: Search the "VPC service on the Search box in AWS Console dashboard and after go to inside "VPC Service"</p>
+    <img src="./1. Create VPC/Screenshot(04).png" width="1000px" height="450px">
+    <img src="./1. Create VPC/Screenshot(05).png" width="1000px" height="450px">
+    <p>Step 5: In left corner given "Your VPCs" in VPC dashboard and click on that "Your VPC".</p>
+    <img src="./1. Create VPC/Screenshot(06).png" width="1000px" height="450px">
+    <p>Step 6: In right side upper corner given "Create VPC" and click on that "Create VPC" in "Mumbai region".</p>
+    <img src="./1. Create VPC/Screenshot(07).png" width="1000px" height="450px">
+    <p>Step 7: Inside "Create VPC" means given "VPC Settings" you can click on that "VPC only".
+    [Note:- "VPC Only" means you can configuaration your own network as per the requirement of your industrials/Organization/Companies needs By Settins up subnet, route table, internet Gateway, Security Group, API's, etc.]
+    ["VPC and more" means AWS more will be customizing complete network infrastructure that while not slecting "VPC and more"]</p>
+    <p>Inside "Create VPC" given "VPC Settings" you can give the name tag:"awsProject-vpc"(Whatever you want to give the name tag)</p>
+    <p>Inside "Create VPC" given "VPC Settings" In "IPV4 CIDR block" having two options 1. IPV4 CIDR manual input 2. IPAM-allocated IPV4 CIDR block" you can select one option "IPV4 CIDR manual input"</p>
+    <p>Inside "Create VPC" given "VPC Settings" you can give address "IPV4 CIDR":20.0.0.0/20[Network Address/Anywhere</p>
+    <img src="./1. Create VPC/Screenshot(08).png" width="1000px" height="450px">
+    <p> Step 8: Inside "Create VPC" given "VPC Settings" In "IPV6 CIDR block" there are having four options. you can select one option "No IPV6 CIDR block", after you can default everything.</p>
+    <p>Inside "Create VPC" given "VPC Settings" click on that "Create VPC"</p>
+    <img src="./1. Create VPC/Screenshot(09).png" width="1000px" height="450px">
+    <p>Step 9: After you shows message you have created VPC Successfully, In below gievn dashboard.</p>
+    <img src="./1. Create VPC/Screenshot(10).png" width="1000px" height="450px">
+    <img src="./1. Create VPC/Screenshot(11).png" width="1000px" height="450px">
+
+    <h2>::02. Create Subnets::</h2>
+    <h3>::(1) Create 2 Public Subnets::</h3>
+    <h4>👨‍💻1st Create Public Subnet:</h4>
+    <p>Step 10: In left corner given "Subnets" you can click on that "Subnets", after In Right-side upper corner given "Create subnet" and click on that "Create Subnet".</p>
+    <img src="./2. Subnets/1. Create Subnet01/Screenshot(01).png" width="1000px" height="450px">
+    <p>Step 11: Inside "Create subnet" given "VPC" you can give "VPC ID:vpc-07e33b046c266375a(awsProject-vpc)" (Whatever you were create vpc, you can give here VPC ID).</p>
+    <img src="./2. Subnets/1. Create Subnet01/Screenshot(02).png" width="1000px" height="450px">
+    <p>Step 12: Inside "Create Subnet" given "Subnet Settings" you can give "subnet name:web-pub-sub1", You can also select "Availabilty zone" Asia Pacific (Mumbai)/ap-south-1a, you can keep in default "IPV4 VPC CIDR block:20.0.0.0/20", you can give "IPV4 subnet CIDR block: 20.0.1.0/24".</p>
+    <img src="./2. Subnets/1. Create Subnet01/Screenshot(03).png" width="1000px" height="450px">
+    <p>Step 13: You can keep in default "Tags-Optional", after you can click on that "Create Subnet".</p>
+    <img src="./2. Subnets/1. Create Subnet01/Screenshot(04).png" width="1000px" height="450px">
+    <p>Step 14: After you shows message you have to created public Subnet Successfully, In below gievn dashboard Image.</p>
+    <img src="./2. Subnets/1. Create Subnet01/Screenshot(05).png" width="1000px" height="450px">
+
+    <h4>👨‍💻2nd Create Public Subnet:</h4>
+    <p>Step 15: In left corner given "Subnets" you can click on that "Subnets", after In Right-side upper corner given "Create subnet" and click on that "Create Subnet".</p>
+    <img src="./2. Subnets/2. Create Subnet02/Screenshot(06).png" width="1000px" height="450px">
+    <p>Step 16: Inside "Create subnet" given "VPC" you can give "VPC ID:vpc-07e33b046c266375a(awsProject-vpc)" (Whatever you were create vpc, you can give here VPC ID.)</p>
+    <img src="./2. Subnets/2. Create Subnet02/Screenshot(07).png" width="1000px" height="450px">
+    <p>Step 17: Inside "Create Subnet" given "Subnet Settings" you can give "subnet name:web-pub-sub2", You can also select "Availabilty zone" Asia Pacific (Mumbai)/ap-south-1b, you can keep in default "IPV4 VPC CIDR block:20.0.0.0/20", you can give "IPV4 subnet CIDR block: 20.0.2.0/24".</p>
+    <img src="./2. Subnets/2. Create Subnet02/Screenshot(08).png" width="1000px" height="450px">
+    <p>Step 18: You can keep in default "Tags-Optional", after you can click on that "Create Subnet".</p>
+    <img src="./2. Subnets/2. Create Subnet02/Screenshot(09).png" width="1000px" height="450px">
+    <p>Step 19: After you shows message you have to created Public Subnet Successfully, In below gievn dashboard Image.</p>
+    <img src="./2. Subnets/2. Create Subnet02/Screenshot(10).png" width="1000px" height="450px">
+
+    <h2>::(2)Create 2 private subnets for applications::</h2>
+    <h4>👨‍💻1st Create private subnets for applications</h4>
+    <p>Step 20: In left corner given "Subnets" you can click on that "Subnets", after In Right-side upper corner given "Create subnet" and click on that "Create Subnet".</p>
+    <img src="./3. Two Private Subnets for App/Screenshot(001).png" width="1000px" height="450px">
+    <p>Step 21: Inside "Create subnet" given "VPC" you can give "VPC ID:vpc-07e33b046c266375a(awsProject-vpc)" (Whatever you were create vpc, you can give here VPC ID).</p>
+    <img src="./3. Two Private Subnets for App/Screenshot(002).png" width="1000px" height="450px">
+    <p>Step 22: Inside "Create Subnet" given "Subnet Settings" you can give "subnet name:app-pvt-sub1", You can also select "Availabilty zone" Asia Pacific (Mumbai)/ap-south-1a, you can keep in default "IPV4 VPC CIDR block:20.0.0.0/20", you can give "IPV4 subnet CIDR block: 20.0.3.0/24", You can keep in default "Tags-Optional" everythings, after you can click on that "Add new Subnet".</p>
+    <img src="./3. Two Private Subnets for App/Screenshot(003).png" width="1000px" height="450px">
+    <p>👨‍💻2nd Create private subnets for applications:</p>
+    <p>Step 23: Here, 2nd Create private subnets for applicationsAgain, click on that "Add new subnet" after Inside "Create Subnet 2 of 2" given "Subnet Settings" you can give "subnet name:app-pvt-sub2", You can also select "Availabilty zone" Asia Pacific (Mumbai)/ap-south-1b, you can keep in default "IPV4 VPC CIDR block:20.0.0.0/20", you can give "IPV4 subnet CIDR block: 20.0.4.0/24", You can keep in default "Tags-Optional", after you can click on that "Create Subnet".</p>
+    <img src="./3. Two Private Subnets for App/Screenshot(004).png" width="1000px" height="450px">
+    <img src="./3. Two Private Subnets for App/Screenshot(005).png" width="1000px" height="450px">
+    <p>Step 24: After you shows message you have to created two Private Subnet for Applications Successfully, In below given dashboard Image.</p>
+    <img src="./3. Two Private Subnets for App/Screenshot(006).png" width="1000px" height="450px">
+   
+    <h2>::(3)Create 2 private subnets for databases::</h2>
+    <p>👨‍💻 1st Create private subnets for database</p>
+    <p>Step 25: In left corner given "Subnets" you can click on that "Subnets", after In Right-side upper corner given "Create subnet" and click on that "Create Subnet".</p>
+    <img src="./4. Two Private Subnets for DB/Screenshot(01).png" width="1000px" height="450px">
+    <p>Step 26: Inside "Create subnet" given "VPC" you can give "VPC ID:vpc-07e33b046c266375a(awsProject-vpc)" (Whatever you were create vpc, you can give here VPC ID).</p>
+    <img src="./4. Two Private Subnets for DB/Screenshot(02).png" width="1000px" height="450px">
+    <p>Step 27: Inside "Create Subnet" given "Subnet Settings" you can give "subnet name:db-pvt-sub1", You can also select "Availabilty zone" Asia Pacific (Mumbai)/ap-south-1a, you can keep in default "IPV4 VPC CIDR block:20.0.0.0/20", you can give "IPV4 subnet CIDR block: 20.0.5.0/24", You can keep in default "Tags-Optional" everythings, after you can click on that "Add new Subnet".</p>
+    <img src="./4. Two Private Subnets for DB/Screenshot(03).png" width="1000px" height="450px">
+    <p>👨‍💻 2nd Create private subnets for database</p>
+    <p>Step 28: Again click on that "Add new subnet" after Inside "Create Subnet 2 of 2" given "Subnet Settings" you can give "subnet name:db-pvt-sub2", You can also select "Availabilty zone" Asia Pacific (Mumbai)/ap-south-1b, you can keep in default "IPV4 VPC CIDR block:20.0.0.0/20", you can give "IPV4 subnet CIDR block: 20.0.6.0/24", You can keep in default "Tags-Optional", after you can click on that "Create Subnet".</p>
+    <img src="./4. Two Private Subnets for DB/Screenshot(04).png" width="1000px" height="450px">
+    <img src="./4. Two Private Subnets for DB/Screenshot(05).png" width="1000px" height="450px">
+    <p>Step 29: After you shows message you have to created two Private for databases Subnet Successfully, In below given dashboard Image.</p>
+    <img src="./4. Two Private Subnets for DB/Screenshot(06).png" width="1000px" height="450px">
+    <p>Step 30: Go to "Your VPC" and click on that "Refresh" and after check the Checkbox "awsProject-vpc" and after scroll down, you can see there "Resource map" Here you can see VPC only 1 "awsProject-vpc" , and you can see Subnets having only 6th there are given "(1)web-pub-sub1 (2)web-pub-sub2 (3)app-pvt-sub1 (4)app-pvt-sub2 (5)db-pvt-sub1 (6)db-pvt-sub2" , Route tables given default only now, Network connections are not given. (Note: Resource map shows the mapping of network connections of our "VPC" with "Subnets" with "Route Tables" and with "Internet Gateways").</p>
+    <img src="./4. Two Private Subnets for DB/Screenshot(07).png" width="1000px" height="450px">
+
+    <h2>::03. Create / Allocate Elastic IPs::</h2>
+    <p>Step 31: In left corner given "Elastic IPs" in "VPC dashboard" you can click on that "Elastic IPs", after in Right-side upper corner given "Allocate Elastic IP Address" and click on that "Create Subnet".</p>
+    <img src="./5. Elastic IP/Screenshot(01).png" width="1000px" height="450px">
+    <p>Step 32: after go to inside "Allocate Elastic IP Address", you can keep in default everything's , and after click on that "Allocate".</p>
+    <img src="./5. Elastic IP/Screenshot(02).png" width="1000px" height="450px">
+    <img src="./5. Elastic IP/Screenshot(03).png" width="1000px" height="450px">
+    <p>Step 33: After you shows message you have to "Allocate Elstic IP Address" Successfully, In below given dashboard Image.</p>
+    <img src="./5. Elastic IP/Screenshot(04).png" width="1000px" height="450px">
+ 
+    <h2>::04. Create NAT gateway::</h2>
+    <p>Step 34: In left corner given "NAT gateways" in "VPC dashboard" you can click on that "NAT gateways, after in Right-side upper corner given "Create NAT gateway" and click on that "Create NAT gateway".</p>
+    <img src="./6. Create NAT Gateway/Screenshot(01).png" width="1000px" height="450px">
+    <p>Step 35: Inside "Create NAT gateway" given NAT gateway Settings, you can give named:my-nat", you can select one option "Subnet:subnet-05d6106817960a338(web-pub-sub1)" you can select "Connectivity type:public", you can give "eipalloc-0ac71c98d2971dba1(My_EIP-ID)" and after keep in default everythings, and after you can click on that "Create NAT gateway".</p>
+    <img src="./6. Create NAT Gateway/Screenshot(02).png" width="1000px" height="450px">
+    <img src="./6. Create NAT Gateway/Screenshot(03).png" width="1000px" height="450px">
+    <p>Step 36: After that you will get notification message, Saying that you have to "Created NAT gateway" Successfully, In below given dashboard Image.</p>
+    <img src="./6. Create NAT Gateway/Screenshot(04).png" width="1000px" height="450px">
+
+    <h2>::05. Create Internet gateway::</h2>
+    <p>Step 37: In left corner given "Internet gateways" in "VPC dashboard" you can click on that "Internet gateways, after in Right-side upper corner given "Create Internet gateway" and click on that "Create Internet gateway".</p>
+    <img src="./7. Create Internet gateway/Screenshot(01).png" width="1000px" height="450px">
+    <p>Step 38: Inside "Create Internet gateway" given "Internet gateway settings" you can give "Name tag:my-igw" after you can keep in default everything's , and after click on that "Create Internet gateway".</p>
+    <img src="./7. Create Internet gateway/Screenshot(02).png" width="1000px" height="450px">
+    <p>Step 39: After that you will get notification message, Saying that you have to "Created Internet gateway" Successfully, In below given dashboard Image.</p>
+    <img src="./7. Create Internet gateway/Screenshot(03).png" width="1000px" height="450px">
+    <p>Step 40 : After check the "Checkbox:my-igw", and go to the "Actions", and after go to the "Attach to VPC" and click on that "Attach VPC".</p>
+    <img src="./7. Create Internet gateway/Screenshot(04).png" width="1000px" height="450px">
+    <p>Step 41: Inside "Attach to VPC" given "VPC" you can select on that "Available VPCs:vpc-07e33b046c266375a" and after click on that"Attach Internet gateway".</p>
+    <img src="./7. Create Internet gateway/Screenshot(05).png" width="1000px" height="450px">
+    <p>Step 42: After that you will get notification message, Saying that you have to "Attach Internet gateway" Successfully, In below given dashboard Image.</p>
+    <img src="./7. Create Internet gateway/Screenshot(06).png" width="1000px" height="450px">
+
+    <h2>::06. Create 3 Route tables::</h2>
+    <h4>::(1)Create route table for route-web::</h4>
+    <p>Step 43: In left corner given "Route tables" in "VPC dashboard" you can click on that "route tables, after in Right-side upper corner given "Create route table" and click on that "Create route table".</p>
+    <img src="./8. Create Route tables/Screenshot(01).png" width="1000px" height="450px">
+    <p>Step 44: Inside "Create route table" given "Route table settings" you can give "Name:route-web" and you can keep in default everythings and after click on that "Create route table".</p>
+    <img src="./8. Create Route tables/Screenshot(02).png" width="1000px" height="450px">
+    <p>Step 45: After that you will get notification message, Saying that you have to "Create route table" Successfully, In below given dashboard Image.</p>
+    <img src="./8. Create Route tables/Screenshot(03).png" width="1000px" height="450px">
+    <p>Step 46: after check the "Checkbox:route-web", after go the "Actions" and after go and click on that the "Edit subnet associations".</p>
+    <img src="./8. Create Route tables/Screenshot(04).png" width="1000px" height="450px">
+    <p>Step 47: And after select the two Checkbox "(web-pub-sub1 && web-pub-sub2), and after click on that "Save associations".</p>
+    <img src="./8. Create Route tables/Screenshot(05).png" width="1000px" height="450px">
+
+    <h4>::(2)Create route table for route-app::</h4>
+    <p>Step 48: In left corner given "Route tables" in "VPC dashboard" you can click on that "route tables, after in Right-side upper corner given "Create route table" and click on that "Create route table".</p>
+    <img src="./8. Create Route tables/Screenshot(06).png" width="1000px" height="450px">
+    <p>Step 49: Inside "Create route table" given "Route table settings" you can give "Name:route-app" and you can keep in default everythings and after click on that "Create route table".</p>
+    <img src="./8. Create Route tables/Screenshot(07).png" width="1000px" height="450px">
+    <p>Step 50: After that you will get notification message, Saying that you have to "Create route table" Successfully, In below given dashboard Image.</p>
+    <img src="./8. Create Route tables/Screenshot(08).png" width="1000px" height="450px">
+    <p>Step 51: after check the "Checkbox:route-app", after go the "Actions" and after go and click on that the "Edit subnet associations".</p>
+    <img src="./8. Create Route tables/Screenshot(09).png" width="1000px" height="450px">
+    <p>Step 52: And after select the two Checkbox "(app-pvt-sub1 && app-pvt-sub2), and after click on that "Save associations".</p>
+    <img src="./8. Create Route tables/Screenshot(10).png" width="1000px" height="450px">
+
+    <h4>::(3)Create route table for route-db::</h4>
+    <p>Step 53: In left corner given "Route tables" in "VPC dashboard" you can click on that "route tables, after in Right-side upper corner given "Create route table" and click on that "Create route table".</p>
+    <img src="./8. Create Route tables/Screenshot(11).png" width="1000px" height="450px">
+    <p>Step 54: Inside "Create route table" given "Route table settings" you can give "Name:route-db" and you can keep in default everythings and after click on that "Create route table".</p>
+    <img src="./8. Create Route tables/Screenshot(12).png" width="1000px" height="450px">
+    <p>Step 55: After that you will get notification message, Saying that you have to "Create route table" Successfully, In below given dashboard Image.</p>
+    <img src="./8. Create Route tables/Screenshot(13).png" width="1000px" height="450px">
+    <p>Step 56: after check the "Checkbox:route-db", after go the "Actions" and after go and click on that the "Edit subnet associations".</p>
+    <img src="./8. Create Route tables/Screenshot(14).png" width="1000px" height="450px">
+    <p>Step 57: And after select the two Checkbox "(db-pvt-sub1 &&  db-pvt-sub2)", and after click on that "Save associations".</p>
+    <img src="./8. Create Route tables/Screenshot(15).png" width="1000px" height="450px">
+
+    <h4>Now add the routes</h4>
+    <p>Step 58: Select route-web, go to routes and click edit routes, add route select the Destination as 0.0.0.0/0, Target Internet Gateway(my-igw) and click on "Save changes".</p>
+    <img src="./9. Add the Routes/Screenshot(01).png" width="1000px" height="450px">
+    <img src="./9. Add the Routes/Screenshot(02).png" width="1000px" height="450px">
+    <p>Step 59: Select route-app, go to routes and click edit routes, add route select the Destination as 0.0.0.0/0, Target NAT Gateway(my-nat) and click on "Save changes".</p>
+    <img src="./9. Add the Routes/Screenshot(03).png" width="1000px" height="450px">
+    <img src="./9. Add the Routes/Screenshot(04).png" width="1000px" height="450px">
+    <p>Step 60: Select route-db, go to routes and click edit routes, add route select the Destination as 0.0.0.0/0, Target NAT Gateway(my-nat) and click on "Save changes".</p>
+    <img src="./9. Add the Routes/Screenshot(05).png" width="1000px" height="450px">
+    <img src="./9. Add the Routes/Screenshot(06).png" width="1000px" height="450px">
+    <p>Step 61: Go to "Your VPC" and click on that "Refresh" and after check the Checkbox "awsProject-vpc" and after scroll down, you can see there "Resource map" Here you can see VPC only 1 "awsProject-vpc" , and you can see Subnets having only 6th there are given "(1)web-pub-sub1 (2)web-pub-sub2 (3)app-pvt-sub1 (4)app-pvt-sub2 (5)db-pvt-sub1 (6)db-pvt-sub2" , Route tables having are  default-rtb, route-web, route-app and route-db, Now Network connections having are my-igw and ny-nat. (Note: Resource map shows the mapping of network connections of our "VPC" with "Subnets" with "Route Tables" and with "Internet Gateways").</p>
+    <img src="./9. Add the Routes/Screenshot(07).png" width="1000px" height="450px">
+
+
+    <h3>::Part 2::</h3>
+    <h2>::07. Created / Launching 3 EC2 instances::</h2>
+    <h4>(1) Launch the 1st Instance</h4>
+    <p>Step 62: Search "EC2 Service" on the Search box and go to the inside "EC2 Service"</p>
+    <img src="./10. Launch Instances/1st Instance/Screenshot(01).png" width="1000px" height="450px">
+    <p>Step 63: In left corner given "Instances" and click on that "Instances" and after In right corner upperside given "Launch Instances" and click on that "Launch Instances"</p>
+    <img src="./10. Launch Instances/1st Instance/Screenshot(02).png" width="1000px" height="450px">
+    <p>Step 64: Inside "Launch an Instance" given "Name and tags" you can give the "Name:jump-server"[It is upto you whatever you want to give any name inside "Name and tags"</p>
+    <img src="./10. Launch Instances/1st Instance/Screenshot(03).png" width="1000px" height="450px">
+    <p>Step 65: Inside "Launch "Application and OS Images(Amazon Machine Image{AMI})" gievn "Quick Start" you can select anyone "AMI" from the "Quick Start" for Example:"Amazon linux", or "macOS", or "Ubuntu", or "Windows", RedHat, etc...(Whatever you want , you can select any one as your preference)But, now i can select one option "AMI" from the "Quick Start" "Amazon linux", after you can keep in default.</p>
+    <img src="./10. Launch Instances/1st Instance/Screenshot(04).png" width="1000px" height="450px">
+    <p>Step 66: Inside "Launch an Instance" given "Instance type" you can select on that "t2.micro"</p>
+    <img src="./10. Launch Instances/1st Instance/Screenshot(05).png" width="1000px" height="450px">
+    <p>Step 67: Inside "Launch an Instance" given "key pair(login)" you can select anyone "Key pair name:mine_key"</p>
+    <img src="./10. Launch Instances/1st Instance/Screenshot(06).png" width="1000px" height="450px">
+    <p>Step 68: Inside "Launch an Instance" given "Network Settings" click on "edit" button on right side corner in "Network settings" and select "VPC:vpc(awsProject-vpc)", and select "Subnet:subnet(web-pub-sub1)", "Auto-assign Public IP:Enable", select on that "Create security group" and give the name of "Security group name:(jump-sg)", Allow "type:SSH, "Protcol:TCP", Port range:22, "Source type:Anywhere(0.0.0.0/0)" and after click on that "Add security group rule" and also Allow "type:HTTP, "Protcol:TCP", Port range:80, "HTTP:80", "Source type:Custom(0.0.0.0/0)", you can select "Source:0.0.0.0/0" and you can type on "description:for Web Hosting" and after you can keep in default everything and after click on that "Launch Instance".</p>
+    <img src="./10. Launch Instances/1st Instance/Screenshot(006).png" width="1000px" height="250px">
+    <img src="./10. Launch Instances/1st Instance/Screenshot(07).png" width="1000px" height="450px">
+    <img src="./10. Launch Instances/1st Instance/Screenshot(08).png" width="1000px" height="450px">
+    <img src="./10. Launch Instances/1st Instance/Screenshot(09).png" width="1000px" height="450px">
+    <p>Step 69: After that you will get notification message, Saying that you have to "Created / Launch 1st Instance" Successfully, In below given dashboard Image, after click on that "View all Instances"</p>
+    <img src="./10. Launch Instances/1st Instance/Screenshot(10).png" width="1000px" height="450px">
+    <img src="./10. Launch Instances/1st Instance/Screenshot(11).png" width="1000px" height="450px">
+    <img src="./10. Launch Instances/1st Instance/Screenshot(12).png" width="1000px" height="450px">
+    <p>Step 70: In left corner given "Security groups" in "VPC dashboard" you can click on that "Security groups, after in right upper-side corner given "Create Security group" and click on that "Create Security group".</p>
+    <img src="./11. Create Security groups/Screenshot(01).png" width="1000px" height="450px">
+    <p>Step 71: Inside "Create Security group" given "Basic details", you can give basic "Security group name:alb-sg" and you can give any "Description:Only for descriptio" and you can select "VPC:vpc(awsProject-vpc)"</p>
+    <img src="./11. Create Security groups/Screenshot(02).png" width="1000px" height="450px">
+    <p>Step 72: Inside "Create Security group" given "Inbound rules" you can give Allow "type:HTTP, "Protcol:TCP", Port range:80, "Source type:Anywhere(0.0.0.0/0)"and after you can give "Description:HTTP for using Hosting Purpose" and after you can keep in default everthings" and after you can click on that "Create Security group".</p>
+    <img src="./11. Create Security groups/Screenshot(03).png" width="1000px" height="450px">
+    <img src="./11. Create Security groups/Screenshot(04).png" width="1000px" height="450px">
+    <p>Step 73: After that you will get notification message, Saying that you have to "Created / Launch the Instance" Successfully, In below given dashboard Image, after click on that "View all Instances"</p>
+    <img src="./11. Create Security groups/Screenshot(05).png" width="1000px" height="450px">
+
+    <h4>(2) Launch the 2nd Instance</h4>
+    <p>Step 74: In left corner given "Instances" and click on that "Instances" and after In right corner upper-side given "Launch Instances" and click on that "Launch Instances"</p>
+    <img src="./10. Launch Instances/2nd Instance/Screenshot(13).png" width="1000px" height="450px">
+    <p>Step 75: Inside "Launch an Instance" given "Name and tags" you can give the "Name:app-server1"[It is upto you whatever you want to give any name inside "Name and tags"]</p>
+    <img src="./10. Launch Instances/2nd Instance/Screenshot(14).png" width="1000px" height="450px">
+    <p>Step 76: Inside "Launch "Application and OS Images(Amazon Machine Image{AMI})" gievn "Quick Start" you can select anyone "AMI" from the "Quick Start" for Example:"Amazon linux", or "macOS", or "Ubuntu", or "Windows", RedHat, etc...(Whatever you want , you can select any one as your preference)But, now i can select one option "AMI" from the "Quick Start" "Amazon linux", after you can keep in default.</p>
+    <img src="./10. Launch Instances/2nd Instance/Screenshot(15).png" width="1000px" height="450px">
+    <p>Step 77: Inside "Launch an Instance" given "Instance type" you can select on that "t2.micro"</p>
+    <img src="./10. Launch Instances/2nd Instance/Screenshot(16).png" width="1000px" height="450px">
+    <p>Step 78: Inside "Launch an Instance" given "key pair(login)" you can select anyone "Key pair name:mine_key"</p>
+    <img src="./10. Launch Instances/2nd Instance/Screenshot(17).png" width="1000px" height="450px">
+    <p>Step 79: Inside "Launch an Instance" given "Network Settings" click on "edit" button on right side of "Network settings" and select "VPC:vpc(awsProject-vpc)", and select "Subnet:subnet(app-pvt-sub1)", "Auto-assign Public IP:Disable", select on that "Create security group" and give the name of "Security group name:(app-sg)", Allow "type:SSH, "Protcol:TCP", Port range:22, "Source type:Anywhere(0.0.0.0/0)" and after click on that "Add security group rule" and also Allow "type:All traffic", "Protcol:All", Port range:All", "Source type:Custom", you can select "Source:alb-sg" and you can type on "description:for Web Hosting" and after you can keep in default everything and after click on that "Launch Instance".</p>
+    <img src="./10. Launch Instances/2nd Instance/Screenshot(18).png" width="1000px" height="450px">
+    <img src="./10. Launch Instances/2nd Instance/Screenshot(19).png" width="1000px" height="450px">
+    <img src="./10. Launch Instances/2nd Instance/Screenshot(20).png" width="1000px" height="450px">
+    <img src="./10. Launch Instances/2nd Instance/Screenshot(21).png" width="1000px" height="450px">
+    <p>Step 80: After that you will get notification message, Saying that you have to "Created / Launch 2nd Instance" Successfully, In below given dashboard Image, after click on that "View all Instances"</p>
+    <img src="./10. Launch Instances/2nd Instance/Screenshot(22).png" width="1000px" height="450px">
+    <img src="./10. Launch Instances/2nd Instance/Screenshot(23).png" width="1000px" height="450px">
+    <img src="./10. Launch Instances/2nd Instance/Screenshot(24).png" width="1000px" height="450px">
+
+    <h4>(3) Launch the 3rd Instance</h4>
+    <p>Step 81: In left corner given "Instances" and click on that "Instances" and after In right corner upper-side given "Launch Instances" and click on that "Launch Instances"</p>
+    <img src="./10. Launch Instances/3rd Instance/Screenshot(25).png" width="1000px" height="450px">
+    <p>Step 82: Inside "Launch an Instance" given "Name and tags" you can give the "Name:app-server2"[It is upto you whatever you want to give any name inside "Name and tags"]</p>
+    <img src="./10. Launch Instances/3rd Instance/Screenshot(26).png" width="1000px" height="450px">
+    <p>Step 83: Inside "Launch "Application and OS Images(Amazon Machine Image{AMI})" gievn "Quick Start" you can select anyone "AMI" from the "Quick Start" for Example:"Amazon linux", or "macOS", or "Ubuntu", or "Windows", RedHat, etc...(Whatever you want , you can select any one as your preference)But, now i can select one option "AMI" from the "Quick Start" "Amazon linux", after you can keep in default.</p>
+    <img src="./10. Launch Instances/3rd Instance/Screenshot(27).png" width="1000px" height="450px">
+    <p>Step 84: Inside "Launch an Instance" given "Instance type" you can select on that "t2.micro"</p>
+    <img src="./10. Launch Instances/3rd Instance/Screenshot(28).png" width="1000px" height="450px">
+    <p>Step 85: Inside "Launch an Instance" given "key pair(login)" you can select anyone "Key pair name:mine_key"</p>
+    <img src="./10. Launch Instances/3rd Instance/Screenshot(29).png" width="1000px" height="250px">
+    <p>Step 86: Inside "Launch an Instance" given "Network Settings" click on "edit" button on right side of "Network settings" and select "VPC:vpc(awsProject-vpc)", and select "Subnet:subnet(app-pvt-sub2)", "Auto-assign Public IP:Disable", select on that "Select existing security group" and select the name of "Security group name:(app-sg)", after you can keep in default everything and after click on that "Launch Instance".</p>
+    <img src="./10. Launch Instances/3rd Instance/Screenshot(30).png" width="1000px" height="450px">
+    <img src="./10. Launch Instances/3rd Instance/Screenshot(31).png" width="1000px" height="450px">
+    <img src="./10. Launch Instances/3rd Instance/Screenshot(32).png" width="1000px" height="450px">
+    <p>Step 87: After that you will get notification message, Saying that you have to "Created / Launch 3rd Instance" Successfully, In below given dashboard Image, after click on that "View all Instances"</p>
+    <img src="./10. Launch Instances/3rd Instance/Screenshot(33).png" width="1000px" height="450px">
+    <img src="./10. Launch Instances/3rd Instance/Screenshot(34).png" width="1000px" height="450px">
+    <img src="./10. Launch Instances/3rd Instance/Screenshot(35).png" width="1000px" height="450px">
+
+    <p>Step 88: First go to and check the Checkbox "jump-server instance" after go the "Actions" after go and click on that "Connect", after go to the "SSH Client", and Copy the "Example" private key from your jump-server instance and Paste in "Gitbash".</p>
+    <img src="./12. Commands-1/Screenshot(01).png" width="1000px" height="450px">
+    <img src="./12. Commands-1/Screenshot(02).png" width="1000px" height="450px">
+    <p>Step 89: Go to This PC Folder, Where is your AWS Key(mine_key.pem), Select (mine_key.pem), right click and open that in Gitbash. After right click and open that in Notepad(mine_key.pem), after Copy key(mine_key.pem) and paste in GitBash,  After right the commands,</p>
+    <img src="./12. Commands-1/Screenshot(03).png" width="1000px" height="450px">
+    <img src="./12. Commands-1/Screenshot(04).png" width="1000px" height="450px">
+    <p>Step 90: >> scp -i 'your key' 'yourkey path' 'ec2-user@private ip' (ssh -i "mine_key.pem" ec2-user@13.235.238.241):~ </p>
+    <p># Create Editor file >> vi File_Name and Paste the mine_key.pem inside vi editor, insert+esc+swif+:+wq!+Enter.</p>
+    <img src="./12. Commands-1/Screenshot(05).png" width="1000px" height="450px">
+    <img src="./12. Commands-1/Screenshot(06).png" width="1000px" height="450px">
+    <p># Give the Permission only read >> chmod 400 'your key'</p>
+    <img src="" alt="">
+    <p># Now you can ssh into your app-server1 and app-server2 instance </p> 
+    <img src="" alt="">
+    <img src="" alt="">
+    <p># Now you can ssh into your app-server1 and app-server2 instance</p>
+    <img src="" alt="">
+    <p>Step 91: Now ssh into app-server1 and run the below commands</p>
+    <p># Update the system</p>
+    <p> >> sudo yum uodate</p>
+    <p> >> sudo yum upgrade</p>
+    <p># Install PHP 8.2</p>
+    <p>Step 92: Now ssh into app-server2 and run the below commands</p>
+    <p># Update the system</p>
+    <p> >> sudo yum update</p>
+    <p>sudo yum upgrade</p>
+    <p># Install PHP 8.2</p>
+</body>
+</html>
